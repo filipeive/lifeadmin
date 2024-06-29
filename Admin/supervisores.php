@@ -2,7 +2,7 @@
 include "../partials/conn.php";
 
 // Carregar a lista de pastores de zona
-$sql_pastores = "SELECT id, nome, area FROM pastores_zona";
+$sql_pastores = "SELECT id, nome FROM pastores_zona";
 $result_pastores = mysqli_query($conn, $sql_pastores);
 ?>
 
@@ -18,7 +18,7 @@ $result_pastores = mysqli_query($conn, $sql_pastores);
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Zona</th>
+                    <th scope="col">Área</th>
                     <th scope="col">Contato</th>
                     <th scope="col">Pastor de Zona</th>
                     <th scope="col">Ações</th>
@@ -51,7 +51,7 @@ $result_pastores = mysqli_query($conn, $sql_pastores);
                 ?>
             </tbody>
         </table>
-
+<hr>
         <div id="form-add-supervisor" style="display: none;">
             <h2>Adicionar Supervisor</h2>
             <form action="add_supervisor.php" method="POST">

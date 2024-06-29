@@ -33,7 +33,7 @@
                 <!-- Outras linhas -->
             </tbody>
         </table>
-
+<hr>
         <!-- Formulário para Registrar Participação -->
         <div id="form-add-participacao" style="display: none;">
             <h2>Registrar Participação</h2>

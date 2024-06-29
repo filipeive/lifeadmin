@@ -79,7 +79,7 @@
         </div>
     </div>
 </div>
-
+<hr>
 <script>
 document.getElementById('btn-add-membro').addEventListener('click', function() {
     document.getElementById('form-add-membro').style.display = 'block';

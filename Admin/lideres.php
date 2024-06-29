@@ -34,6 +34,7 @@
                 <!-- Outras linhas -->
             </tbody>
         </table>
+        <hr>
 
         <!-- Formulário para adicionar Líder -->
         <div id="form-add-lider" style="display: none;">

@@ -41,7 +41,7 @@
                 <!-- Outras linhas -->
             </tbody>
         </table>
-
+<hr>
         <!-- Formulário para Adicionar Transação -->
         <div id="form-add-transacao" style="display: none;">
             <h2>Adicionar Transação</h2>

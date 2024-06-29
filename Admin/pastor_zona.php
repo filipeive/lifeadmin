@@ -39,9 +39,14 @@ if (isset($_GET['delete'])) {
 }
 ?>
 
+<!-- lideres.php -->
+<div class="home-tab">
+    <div class="d-sm-flex align-items-center justify-content-between border-bottom" style="margin-bottom:5px 5px">
+        <h3 class="mb-0">Gerir Pastores de Zonas</h3>
+    </div>
+</div>
 <div class="row mt-4">
     <div class="col-12">
-        <h3 class="mb-0">Pastores de Zona</h3>
         <button class="btn btn-primary mb-3" id="btn-add-pastor">Adicionar Pastor de Zona</button>
         <?php
         if (isset($_SESSION['message'])) {
@@ -83,7 +88,7 @@ if (isset($_GET['delete'])) {
                 ?>
             </tbody>
         </table>
-
+<hr>
         <div id="form-add-pastor" style="display: none;">
             <h2 id="form-title">Adicionar Pastor de Zona</h2>
             <form method="POST">

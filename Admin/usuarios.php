@@ -19,7 +19,8 @@ $result = $conn->query($sql);
     <div class="col-12">
         <div class="d-flex justify-content-between mb-3">
             <button class="btn btn-primary" id="btn-add-usuario">Adicionar Usuário</button>
-            <input type="text" id="search" class="form-control w-25" placeholder="Pesquisar usuário">
+            <!--<input type="text" id="search" class="form-control w-25" placeholder="Pesquisar usuário">-->
+            <input type="text" id="inputPesquisarUsuarios" class="form-control w-25" placeholder="Pesquisar usuário" aria-label="Pesquisar usuários do sistema" onkeyup="filtrarUsuarios()">
         </div>
         
         <!-- Cards de Feedback -->
@@ -31,7 +32,7 @@ $result = $conn->query($sql);
         </div>
 
         <!-- Tabela de Usuários -->
-        <table class="table table-striped">
+        <table class="table table-striped" id="tabelaUsuarios">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -45,8 +46,8 @@ $result = $conn->query($sql);
                 <?php
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr>
-                                <td>{$row['nome']}</td>
+                        echo "<tr class='usuario-row'>
+                                <td class='usuario-nome'>{$row['nome']}</td>
                                 <td>{$row['email']}</td>
                                 <td>{$row['perfil']}</td>
                                 <td>{$row['data_criacao']}</td>
@@ -135,10 +136,26 @@ document.getElementById('fechar-edit-usuario').addEventListener('click', functio
     document.getElementById('form-edit-usuario').style.display = 'none';
 });
 
-document.getElementById('search').addEventListener('keyup', function() {
-    var searchValue = this.value;
-    window.location.href = '?search=' + searchValue;
-});
+//Filtrar Usuarios
+function filtrarUsuarios() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("inputPesquisarUsuarios");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabelaUsuarios");
+    tr = table.getElementsByClassName("usuario-row");
+
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByClassName("usuario-nome")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
 
 // Adicionar evento de clique para botões de edição
 document.querySelectorAll('.btn-edit').forEach(button => {

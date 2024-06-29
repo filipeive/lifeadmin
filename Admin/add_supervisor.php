@@ -4,11 +4,11 @@ include '../partials/conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
-    $zona = $_POST['zona'];
+    $zona = $_POST['area'];
     $contato = $_POST['contato'];
     $pastor_zona_id = $_POST['pastor_zona_id'];
 
-    $sql = "INSERT INTO supervisores (nome, zona, contato, pastor_zona_id) VALUES ('$nome', '$zona', '$contato', '$pastor_zona_id')";
+    $sql = "INSERT INTO supervisores (nome, area, contato, pastor_zona_id) VALUES ('$nome', '$zona', '$contato', '$pastor_zona_id')";
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['message'] = "Supervisor adicionado com sucesso.";
